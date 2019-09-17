@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+프론트엔드 개발과 도시에 대해 관심이 있습니다.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+-
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[josworks27@gmail.com](mailto:josworks27@gmail.com)
