@@ -13,7 +13,7 @@ description: ✨IKU_JO Web developer ✨
 #
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://github.com/josworks27/josworks27.github.io/blob/master/images/KakaoTalk_Photo_2019-08-24-03-25-42.jpeg
+avatar: https://i.imgur.com/5ze6e8Tm.jpg
 
 
 # Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
@@ -28,8 +28,8 @@ navigation:
     url: /archive
   - name: Tags
     url: /tags
-  - name: Theme
-    url: https://github.com/AWEEKJ/kiko-now
+  - name: Github
+    url: https://github.com/josworks27
 
 # Pagination
 paginate: 5
@@ -57,7 +57,11 @@ footer-text: © 2017 Kiko Now
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-disqus: # <username>.disqus.com
+disqus: josworks27
+# disqus: <josworks27>.disqus.com
+# disqus: <josworks27.disqus.com>
+# disqus_id: josworks27
+# disqus_id: <josworks27>
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
