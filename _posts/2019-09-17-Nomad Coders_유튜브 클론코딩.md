@@ -37,7 +37,3 @@ comments: true
   1. 설치도 가능하지만 문제가 있을 때 고칠 수 있음
   2. 설치/이용/삭제 시에 Path의 문제
 * 설치 관련 참고자료 : [링크](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew)
-
-* test
-  - test 1
-  
