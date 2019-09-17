@@ -29,7 +29,8 @@ comments: true
     * package name은 나의 웹사이트(wetube)
   3. package.json 생성됨
 * npm 설치 방법
-  1. 콘솔에 npm install express : npm은 package.json이 있는 곳에 만들어야 함
+  1. 콘솔에 npm install express
+    * npm은 package.json이 있는 곳에 만들어야 함
   2. 설치하면 node_modules가 다운로드 됨
 * package.json은 매우 유용
   1. 프로젝트를 협업하고 싶다면 단지 package.json을 공유하고 npm install을 콘솔에 입력하면 끝
@@ -47,7 +48,8 @@ comments: true
     * git remote add origin https://github.com/josworks27/wetube
   7. git add, commit, push 하기
   8. github 확인 및 완료
-* Express.js 웹사이트에서 설치 [링크](https://expressjs.com/ko/)  * 강의영상 
+* Express.js 웹사이트에서 기본 라우팅 복사 후 설치 [링크](https://expressjs.com/ko/)
+* 설치방법은 내용이 길어 강의 영상 참고하기
 
 ### index.js
 ```javascript
@@ -65,7 +67,6 @@ app.listen(PORT, handleListening);
 
 ### package.json
 ```json
-// package.json
 {
   "name": "2.-wetuve",
   "version": "1.0.0",
