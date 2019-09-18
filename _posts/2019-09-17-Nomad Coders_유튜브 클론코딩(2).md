@@ -107,16 +107,17 @@ app.listen(PORT, handleListening);
 > @babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). This both makes your life easier and JavaScript bundles smaller!
 
 * .babelrc을 생성하고 Node.js에 관한 원하는 설정을 세팅
+* npm install @babel/core
 ### .babelrc
 ```
 {
     "presets": ["@babel/preset-env"]
 }
 ```
-* Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
-* npm install @babel/core
 * npm install nodemon -D
 
 **nodemon 이란?**
 > nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+
+### Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
 
