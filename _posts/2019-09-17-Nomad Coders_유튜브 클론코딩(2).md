@@ -96,7 +96,7 @@ app.listen(PORT, handleListening);
 
 ## #2.5 ES6 on NodeJS using Babel
 **Babel**
- : 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러
+: 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러
 
 * Babel에는 0-3의 stage가 있고 stage에 따라 preset의 차이가 있음
   1. stage-0이 가장 실험적임
@@ -119,5 +119,5 @@ app.listen(PORT, handleListening);
 * npm install @babel/core
 * npm install nodemon -D
 **nodemon 이란?**
- :nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+: nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 
