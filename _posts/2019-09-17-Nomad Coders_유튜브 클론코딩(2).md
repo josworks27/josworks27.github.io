@@ -95,9 +95,7 @@ app.listen(PORT, handleListening);
 
 
 ## #2.5 ES6 on NodeJS using Babel
-**Babel**
-: 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러
-
+* **Babel : 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러**
 * Babel에는 0-3의 stage가 있고 stage에 따라 preset의 차이가 있음
   1. stage-0이 가장 실험적임
 * env는 최신이지만 너무 실험적이진 않음  * 이거 사용
