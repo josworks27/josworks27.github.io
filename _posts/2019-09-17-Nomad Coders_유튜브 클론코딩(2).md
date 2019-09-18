@@ -115,9 +115,10 @@ app.listen(PORT, handleListening);
     "presets": ["@babel/preset-env"]
 }
 ```
-* Arrow function 활용하기 [mdn링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
+* Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
 * npm install @babel/core
 * npm install nodemon -D
+
 **nodemon 이란?**
 : nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 
