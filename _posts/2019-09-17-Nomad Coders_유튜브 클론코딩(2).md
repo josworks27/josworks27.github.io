@@ -36,12 +36,12 @@ comments: true
   1. 프로젝트를 협업하고 싶다면 단지 package.json을 공유하고 npm install을 콘솔에 입력하면 끝
 
 
-## 2.3 Your First Express Server
+## #2.3 Your First Express Server
 * 서버구축 방법
-  1. github에 새로운 repository 생성
+  1. github에 wetube repository 생성
   2. node_module을 ignore 하기
     * 내가 만든 것만 관리하기 위해
-  3. wetube에 .gitignore 생성하고 gitignore의 표준(?) 복사하여 입력[링크](https://github.com/github/gitignore/blob/master/Node.gitignore)
+  3. wetube에 .gitignore 생성하고 gitignore의 표준(?) 복사하여 입력 [링크](https://github.com/github/gitignore/blob/master/Node.gitignore)
   4. FuseBox cache .fusebox/ 밑에 package-lock.json 추가
   5. README.md 생성
   6. repository 주소 복사 후 클론하기
@@ -81,3 +81,43 @@ app.listen(PORT, handleListening);
   }
 }
 ```
+
+## #2.4 Handling Routes with Express
+* GET/POST method를 통한 브라우저(HTTP)의 작동방식
+  1. GET : GET Method를 통해 페이지를 읽음
+  2. POST : POST Method를 통해 정보를 전달함
+    * ex) 영상에 코멘트를 작성
+* Express.js에서 함수는 2가지를 호출함
+  1. request object
+    * 정보를 얻거나 누군가 페이지를 요청하거나 어떤 종류의 데이터가 페이지로 전송됐는가 등
+  2. response object
+* 서버, 라우트를 생성하고 작성한 함수의 res.send를 통해 html/css 등을 보내서 응답하는 형식
+
+
+## #2.5 ES6 on NodeJS using Babel
+**Babel**
+ : 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러
+
+* Babel에는 0-3의 stage가 있고 stage에 따라 preset의 차이가 있음
+  1. stage-0이 가장 실험적임
+* env는 최신이지만 너무 실험적이진 않음  * 이거 사용
+* 설치방법
+  1. Babel node 설치 : npm install @babel/node
+  2. Babe preset-env 설치 : npm install @babel/preset-env 
+
+**@babel/preset-env 설명**
+> @babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). This both makes your life easier and JavaScript bundles smaller!
+
+* .babelrc을 생성하고 Node.js에 관한 원하는 설정을 세팅
+### .babelrc
+```
+{
+    "presets": ["@babel/preset-env"]
+}
+```
+* Arrow function 활용하기 [mdn링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
+* npm install @babel/core
+* npm install nodemon -D
+**nodemon 이란?**
+ :nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+
