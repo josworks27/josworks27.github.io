@@ -95,7 +95,7 @@ app.listen(PORT, handleListening);
 
 
 ## #2.5 ES6 on NodeJS using Babel
-* **Babel : 최신의 JS코드를 보통의 JS코드로 바꿔주는 컴파일러**
+* <u>Babel : 최신의 JS코드를 보통의(또는 올드한, 기존의) JS코드로 바꿔주는 컴파일러</u>
 * Babel에는 0-3의 stage가 있고 stage에 따라 preset의 차이가 있음
   1. stage-0이 가장 실험적임
 * env는 최신이지만 너무 실험적이진 않음  * 이거 사용
@@ -165,7 +165,7 @@ app.listen(PORT, handleListening);
   2. 그래서 편리성을 위해 내가 원하는 만큼 middlewares를 가질 수 있음
     * 유저의 로그인 여부를 체크한다던가 파일전송을 중간에서 가로챈다던가
 * 결국, 유저에게 보여지는 route를 처리하기 전에 내가 원하는 것들을 처리하는 것(?)
-* 아래와 같이 betwee을 보여주는 middleware가 있다면 이 함수가 실행된 코드상의 위치에 따라 웹사이트에서 보여짐
+* 아래와 같이 between을 보여주는 middleware가 있다면 이 함수가 실행된 코드상의 위치에 따라 웹사이트에서 보여짐
   1. 만약에 전역스코프에 있다면 웹사이트의 모든 곳에서 보여짐
 * middleware함수가 next() 대신 res를 리턴하면 다음 순서로 진행 X
 
@@ -186,14 +186,14 @@ const betweenHome = (req, res, next) => {
 * 웹사이트 접속하면 log를 보여줌
 * helmet : node.js 앱의 보안을 위해
 * cookie-parser : cookie에 유저정보를 저장하기 위해
-* body-parser : body로부터 정보를 얻을 위해
-  1. 서버가 무엇이 전송되는지 이해시키기 위해 설정 필요(JSON,text, urlencode 등)
+* body-parser : body로부터 정보를 얻기 위해
+  1. 서버가 무엇이 전송되는지 이해시키기 위해 설정 필요(JSON, text, urlencode 등)
 
 ## #2.8 Express Core: Routing
 * 
 
 
 
-### 참고문헌
+### 참고자료
 1. Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
 2. 
