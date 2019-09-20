@@ -190,8 +190,12 @@ const betweenHome = (req, res, next) => {
   1. 서버가 무엇이 전송되는지 이해시키기 위해 설정 필요(JSON, text, urlencode 등)
 
 ## #2.8 Express Core: Routing
-* 
-
+- export default app;
+  - 누군가 내 파일을 import할 때, app object를 주겠다는 것
+- import app from "app";
+  - 다른 파일에서 불러올 수 있음
+- Express에서 router는 route들의 복잡함을 나눠주는데 사용가능
+  - 
 
 
 ### 참고자료
