@@ -190,13 +190,103 @@ const betweenHome = (req, res, next) => {
   1. 서버가 무엇이 전송되는지 이해시키기 위해 설정 필요(JSON, text, urlencode 등)
 
 ## #2.8 Express Core: Routing
-- export default app;
-  - 누군가 내 파일을 import할 때, app object를 주겠다는 것
-- import app from "app";
-  - 다른 파일에서 불러올 수 있음
-- Express에서 router는 route들의 복잡함을 나눠주는데 사용가능
-  - 
+* export default app;
+  1. 누군가 내 파일을 import할 때, app object를 주겠다는 것
+* import app from "app";
+  1. 다른 파일에서 불러올 수 있음
+* Express에서 router는 route들의 복잡함을 나눠주는데 사용가능
+  ex) /user/chagepassword
+      /user/logout
+* default로 export 하는게 아니면 아래와 같이 import함
+  1. default는 파일 전체
+  2. 변수 앞에는 그 변수만
 
+```javascript
+import { userRouter } from "./router";
+```
+
+* app.use("/user", userRouter) 하면 userRouter 전체를 사용
+  1. /user === userRouter의 / 로 연결됨
+
+## #2.9 MVC Pattern part One
+* MVC(Model. View, Control)는 일종의 패턴
+  1. model : 데이터
+  2. view : 데이터가 어떻게 생겼는지
+  3. control : 데이터를 찾는 함수
+
+## #2.10 MVC Pattern part Two
+* "/:id"는 express가 변하는 값이라고 인식함
+* 각 라우터들을 객체로 만든 다음 import해면 모든 URL구조를 기억하지 않고 활용가능
+
+```javascript
+// Global
+const HOME = "/";
+const JOIN = "/join";
+const LOGIN = "/login";
+const LOGOUT = "/logout";
+const SEARCH = "/search";
+
+// Users
+const USERS = "/users";
+const USER_DETAIL = "/:id";
+const EDIT_PROFILE = "/edit-profile";
+const CHANGE_PASSWORD = "/change-password";
+
+// Videos
+const VIDEOS = "/videos";
+const UPLOAD = "/upload"; 
+const VIDEO_DETAIL = "/:id";
+const EDIT_VIDEO = "/:id/edit";
+const DELETE_VIDEO = "/:id/delete";
+
+const routes = {
+    home: HOME,
+    join: JOIN,
+    login: LOGIN,
+    logout: LOGOUT,
+    search: SEARCH,
+    users: USERS,
+    userDetail: USER_DETAIL,
+    editProfile: EDIT_PROFILE,
+    changePassword: CHANGE_PASSWORD,
+    videos: VIDEOS,
+    upload: UPLOAD,
+    videoDetail: VIDEO_DETAIL,
+    editVideo: EDIT_VIDEO,
+    deleteVideo: DELETE_VIDEO
+};
+
+export default routes;
+```
+
+## #2.11 MVC Pattern part Three
+* 대개 프로젝트에 있는 각 모델마다 컨트롤러를 만듦
+  1. wetube는 video/user로 나뉘기 때문에 컨트롤러도 2개 만듦
+* 컨트롤러란 어떤 일이 어떻게 발생하는지에 관한 로직임
+
+### userController
+```javascript
+export const join = (req, res) => res.send("Join");
+export const login = (req, res) => res.send("Login");
+export const logout = (req, res) => res.send("Logout");
+```
+
+### videoController
+```javascript
+export const home = (req, res) => res.send("Home");
+export const search = (req, res) => res.send("Search");
+```
+
+* 화살표 함수에는 암시적 리턴(implicit return)이라는 것이 있음
+  1. 중괄호 없는 경우는 암시적으로 리턴함
+  2. 중괄호 있는 경우는 암시적으로 리턴하지 않기 때문에 return을 적어야 함
+
+```javascript
+function foo = () => true;
+function foo = () => {
+  return true;
+}
+```
 
 ### 참고자료
 1. Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
