@@ -306,9 +306,85 @@ span so cool
 
 ![Imgur](https://i.imgur.com/Z3eTLes.png)
 
+## #2.14 Layouts with Pug
+* HTML과 CSS만으로 작업하면 같은 작업을 반복해야만 하기 때문에 불편함
+  1. 논리적인 작업에 한계가 있음
+* 모든 페이지는 header, footer, HTML, head태그, css link 등의 공통의 코드가 필요
+* pug 작성 규칙
+  1. 태그의 <>를 사용하지 않고 들여쓰기 사용
+  2. 자식 태그들은 탭 또는 스페이스4칸 들여쓰고 작성  * 여기선 탭이 편함
+* 하나의 레이아웃을 다른 페이지로 확장하기
+  1. extends 확장할 파일
+* 각각의 pug에서 block content가 들어가는 자리에 내용을 넣을 수 있음
+### main.pug
+```
+doctype html
+html
+    head
+        title Wetube
+    body
+        header
+            h1 WeTube
+        main
+            block content
+        footer
+            span &copy; WeTube
+```
+
+## #2.15 Partials with Pug
+* partial은 페이지를 부분별로 나눈 것  * 조직적인 목적을 위해
+* pug은 html 명령어를 더 간단히 쓸 수 있음
+
+```
+header.header
+    .header__column
+        i.fab.fa-youtube
+    .header__column
+        ul
+            li
+                a(href="#") Join
+            li
+                a(href="#") Log In
+```
+* include + 경로를 통해 부분별로 나눈 Partials 연결
+* block을 통해 접근
+
+```
+doctype html
+html
+    head
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" integrity="sha384-IT8OQ5/IfeLGe8ZMxjj3QQNqT0zhBJSiFCL3uolrGgKRuenIU+mMS94kck/AHZWu", crossorigin="anonymous")
+        title Wetube
+    body
+        include ../partials/header  // header
+        main
+            block content // block
+        include ../partials/footer  // footer
+```
+
+* #{} 안에 코드는 적으면 pug에서 JS코드를 사용 가능!
+
+```
+footer.footer
+    div.footer_icon
+        i.fab.fa-youtube
+    spna.footer_text WeTube  #{new Date().getFullYear()} &copy; 
+```
+
+* 더 나은 코드를 위해 One single source of truth(한 곳에서만 정보를 보관)을 기억
+   1. 버그 최소화
+   2. 관리 용이
+
+## #2.16 Local Variables in Pug
+* 미들웨어를 사용
+* controller에 있는 정보를 템플릿에 추가 가능
+  1. 전체 템플릿, 일부 템플릿 자유롭게 가능
+
+
+
 
 
 
 ### 참고자료
 1. Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
-2. 
+2. 무료 아이콘 사이트 : https://fontawesome.com/
