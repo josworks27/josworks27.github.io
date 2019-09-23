@@ -298,12 +298,13 @@ function foo = () => {
 
 * 뷰 엔진을 pug으로 설정 필요: app.set("view engine", "pug")
 
-```pug
+* 간단한 pug 사용 예시
+```
 div hello jo
 span so cool
 ```
 
-[Imgur](https://i.imgur.com/Z3eTLes.png)
+![Imgur](https://i.imgur.com/Z3eTLes.png)
 
 
 
