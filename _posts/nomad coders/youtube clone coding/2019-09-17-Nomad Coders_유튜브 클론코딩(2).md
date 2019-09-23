@@ -288,6 +288,26 @@ function foo = () => {
 }
 ```
 
+## #2.12 Recap
+* 지금까지의 내용 복습
+
+## #2.13 Installing Pug
+* Pug 설치 : npm install pug
+* Pug 개요
+> The general rendering process of Pug is simple. pug.compile() will compile the Pug source code into a JavaScript function that takes a data object (called “locals”) as an argument. Call that resultant function with your data, and voilà!, it will return a string of HTML rendered with your data.
+
+* 뷰 엔진을 pug으로 설정 필요: app.set("view engine", "pug")
+
+```pug
+div hello jo
+span so cool
+```
+
+[Imgur](https://i.imgur.com/Z3eTLes.png)
+
+
+
+
 ### 참고자료
 1. Arrow function 활용하기 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98)
 2. 
