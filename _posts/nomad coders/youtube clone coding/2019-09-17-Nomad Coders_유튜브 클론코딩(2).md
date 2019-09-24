@@ -376,11 +376,50 @@ footer.footer
    2. 관리 용이
 
 ## #2.16 Local Variables in Pug
-* 미들웨어를 사용
-* controller에 있는 정보를 템플릿에 추가 가능
-  1. 전체 템플릿, 일부 템플릿 자유롭게 가능
+* controller에 있는 정보를 템플릿에 추가하는 방법은 두 가지가 있음
+  1. 전체 템플릿에 추가
+  2. 일부 템플릿에만 추가
+* 전체 템플릿에 추가하기 위해서는 미들웨어를 이용해야 함
+* res.locals.원하는 이름을 만들고 만들어진 이름을 통해 전체 템플릿에서 이용가능
+  1. 미들웨어이기 때문에 next()로 다음 req에 전달해야 함
 
+```javascript
+import routes from "./routes";
 
+export const localsMiddleware = (req, res, next) => {
+    res.locals.siteName = "WeTube";
+    res.locals.routes = routes;
+    next();
+}
+```
+
+## #2.17 Template Variables in Pug
+* 일부 템플릿에만 추가하는 방법
+* controller에서 res.render("home", { pageTitle: "HOME" }) 과 같이 가능
+  1. { pageTitle: "HOME" }은 home.pug와 같이 main.pug로 확장되기 때문에 main.pug의 #{pageTitle}에 이용 가능하게 됨
+* { pageTitle: "HOME" }의 인자부분은 무엇이든 전달할 수 있음
+
+### home.pug
+```
+extends layouts/main
+
+block content
+    p Home
+```
+
+### main.pug
+```
+doctype html
+html
+    head
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.11.1/css/all.css" integrity="sha384-IT8OQ5/IfeLGe8ZMxjj3QQNqT0zhBJSiFCL3uolrGgKRuenIU+mMS94kck/AHZWu", crossorigin="anonymous")
+        title #{pageTitle} | #{siteName}
+    body
+        include ../partials/header
+        main
+            block content
+        include ../partials/footer
+```
 
 
 
