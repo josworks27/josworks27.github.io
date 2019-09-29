@@ -397,7 +397,7 @@ export const localsMiddleware = (req, res, next) => {
 * 일부 템플릿에만 추가하는 방법
 * controller에서 res.render("home", { pageTitle: "HOME" }) 과 같이 가능
   1. { pageTitle: "HOME" }은 home.pug와 같이 main.pug로 확장되기 때문에 main.pug의 #{pageTitle}에 이용 가능하게 됨
-* { pageTitle: "HOME" }의 인자부분은 무엇이든 전달할 수 있음
+* { pageTitle: "HOME" }의 인자부분을 통해 해당 페이지에 전달할 수 있음
 
 ### home.pug
 ```
@@ -420,6 +420,26 @@ html
             block content
         include ../partials/footer
 ```
+
+## #2.18 Search Controller
+* 컨트롤러로 query에 접근하려면 form 엘리먼트의 method='get'으로
+  1. post면 url에 표시되지 않음
+* '&'으로 query를 추가할 수 있음. 자바스크립트 객체 형태로
+
+### ES6 방식의 객체 다루기
+```javascript
+const {query: {term: searchingBy}} = req === searchingBy = req.query.term과 같음
+```
+
+## #2.19 Join : Log In HTML
+* login 파트에선 form의 method를 post로 처리
+  1. get이면 url에 보이기 때문(보안문제)
+* 
+
+## #2.20 Change Profile HTML
+* 
+
+
 
 
 
