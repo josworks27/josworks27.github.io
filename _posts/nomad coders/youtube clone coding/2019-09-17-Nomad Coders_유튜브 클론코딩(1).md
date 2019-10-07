@@ -14,7 +14,7 @@ comments: true
 * file system을 다룰 수 있음
   1. 서버 만들기
   2. Web scrapper를 만들어서 정보수집
-  3. 모바일 앱 만들기 등
+  3. 모바일 앱 만들기 등 
 
 
 ## #1.1 Use Cases for NodeJS
