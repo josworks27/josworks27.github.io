@@ -94,4 +94,4 @@ function fibonacci(num) {
     }
 ```
 
-![시간 복잡도](./_posts/immersive16/sosDocumentReview/sosImages/스크린샷 2019-11-23 15.31.26.png)
+![시간 복잡도](./_posts/immersive16/sosDocumentReview/sosImages/3.png)
