@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Server Side Techniques"
+title: "Server Side Techniques_Key Materials"
 tags: 
     - Immersive 16
 comments: true
@@ -10,7 +10,7 @@ comments: true
 # Intro Server Side Techniques Sprint
 1. Promises
 * 솔로 스프린트
-* 파일에 쌓인 내용을 읽어서 그 내용을 바탕으로 다른 곳에 http요청을 보내고 응답을 다른 파일에 기록하는 스프린트
+* 파일에 내용을 읽어서 그 내용을 바탕으로 다른 곳에 http요청을 보내고 응답을 다른 파일에 기록하는 스프린트
 
 2. Article Collector
 * pair 스프린트
