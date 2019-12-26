@@ -7,7 +7,7 @@ comments: true
 ---
 
 
-# Intro Promises
+# 1. Intro Promises
 * 자바스크립트 대표적 비동기 로직: http의 요청/응답, 파일을 읽고 쓰는 파일 입/출력 등
 * 비동기로 처리되는 작업들은 흐름을 예측하기 어려움 => 예측하기 쉬운 흐름으로 만드는게 비동기 처리! (콜백, 프로미스, 에이싱크 어웨잇)
 * 스프린트 폴더의 example 간단한 예시들
@@ -26,7 +26,7 @@ comments: true
 * 유클 참고하기!
 
 
-# 자바스크립트 비동기 처리와 콜백 함수[캡틴판교]
+# 2. 자바스크립트 비동기 처리와 콜백 함수[캡틴판교]
 * 비동기처리: 특정 코드의 연산이 끌날 때까지 코드의 실행을 멈추지 않고 다음 코드를 먼저 실행하는 자바스크립트의 특성을 의미
 
 ## 비동기 처리의 첫 번째 사례 - 제이쿼리 ajax
@@ -77,7 +77,7 @@ getData(function(tableData) {
 ```
 
 
-# 자바스크립트 Promise 쉽게 이해하기[캡틴판교]
+# 3. 자바스크립트 Promise 쉽게 이해하기[캡틴판교]
 * Promise: 자바스크립트 비동기 처리에 사용되는 객체
 * 프로미스는 서버에서 받아온 데이터를 화면에 표시할 때 사용
 
@@ -179,8 +179,10 @@ new Promise(function(resolve, reject){
 
 
 
-## Node.js에서 Request.js 사용하기
+# 4. Node.js에서 Request.js 사용하기
 https://medium.com/harrythegreat/node-js%EC%97%90%EC%84%9C-request-js-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-28744c52f68d
+
+* 브라우저에서 자바스크립트를 쓴다면 fetch라는 내장 모듈이 있지만 Node.js에서 가장 많이 쓰는 HTTP 라이브러리는 request.js
 
 ```javascript
 const request = require('request');
@@ -236,4 +238,18 @@ const options = {
     },
     json: true  //json으로 보낼경우 true로 해주어야 header값이 json으로 설정됩니다.
 }
+```
+
+
+# 5. fs.readFile()
+
+```javascript
+// fs.readFile(path[, options], callback)
+fs.readFile('/etc/passwd', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
+// 옵션 넣는다면?
+fs.readFile('/etc/passwd', 'utf8', callback);
 ```

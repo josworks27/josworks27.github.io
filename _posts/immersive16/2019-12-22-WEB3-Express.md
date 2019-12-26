@@ -247,6 +247,7 @@ app.post('/create_process', (request, response) => {
 * 데이터를 압축시켜서 압축된 데이터를 전송함. 획기적으로 효율적인 전송이 가능함
 * 압축을 푸는 작업이 필요함
 * 콘솔의 네트워크 확인해 보면 express의 사이즈가 눈에 띄게 줄어든 것을 알 수 있음!
+
 ```javascript
 // 설치방법
 $ npm install compression --save
@@ -256,3 +257,30 @@ var compression = require('compression');
 
 app.use(compression());
 ```
+
+# 10. 미들웨어 만들기
+* express에서 미들웨어는 함수의 형태를 갖고 있음, next()를 넣어야 다음 미들웨어로 넘어감
+* app.use()로 사용
+* app.user는 request, response, next의 순의 파라미터로 구성
+* 미들웨어를 만들면 모든 라우터에서 사용 가능함
+
+```javascript
+// 미들웨어 만들기 샘플
+var myLogger = function(req, res, next) {
+  console.log('logger!');
+  next();
+}
+```
+
+* app.use()를 사용하면 필요하지 않은 모든 곳에서도 읽어올 수 있도록 처리가 되기 때문에 불필요한 자원소모가 일어남!
+* 그래서 app.get('*', {...}) 으로 바꾸면 get방식에서만 읽어올수 있도록 처리함! 그리고 * 는 모든 경로에서 사용가능하게 됨
+
+```javascript
+app.get('*', function (request, response, next) {
+  fs.readdir('./data', function (error, filelist) {
+    request.list = filelist;
+    next();
+  })
+})
+```
+
