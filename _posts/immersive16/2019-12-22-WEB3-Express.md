@@ -284,3 +284,97 @@ app.get('*', function (request, response, next) {
 })
 ```
 
+# 11. 미들웨어의 실행순서
+* next()는 다음 미들웨어를 의미하며, 다음 미들웨어의 동작을 현재 미들웨어가 결정하는 것임
+* next()에 인자를 넣는 방식으로 미들웨어의 흐름을 제어할 수 있음
+* 조건문 처리로 next('route')를 하면 조건이 성립하면 다음 미들웨어를 실행함
+
+```javascript
+app.get('/user/:id', (req, res,next) => {
+  if (req.params.id === '0') next('route')
+  else next()
+}, (req, res, next) => {
+  res.render('regular')
+})
+
+// 위 미들웨어에서 조건문이 성립하면 아래의 미들웨어가 실행됨
+app.get('/user/:id', (req, res, next) => {
+  res.render('special')
+})
+```
+
+# 12. 정적인 파일의 서비스
+* 정적인 파일의 서비스: 이미지, 자바스크립트, css같은 파일들을 웹브라우져로 다운로드하는 경우
+* 이미지를 넣을려면 정적인 파일을 처리할 수 있도록 설정해야함
+* 정적인 파일을 서비스할려고 하는 디렉토리를 지정해주면 됨
+
+```javascript
+app.use(express.static('public'));
+```
+
+# 13. 에러처리
+* 에러도 마찬가지로 미들웨어로 처리함
+
+```javascript
+// 에러처리: 최후까지 와도 처리가 안된경우 얘가 404에러로 처리함
+app.use(function(erq, res, next) {
+  res.status(404).send('Sorry cnat find that!');
+})
+
+// 에러 핸들러 미들웨어: 얘로 에러 관련 처리를 할 수 있음
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).send('Something BROKE!')
+}) 
+```
+
+# 14.1. 라우터 - 주소체계 변경
+* 소프트웨어가 커지면 복잡도가 증가하기 때문에 라우터로 따로 잘 정리정돈 하는 것이 필요함
+
+# 14.2 라우터 - 파일로 분리
+* 파일로 분리한 /topic으로 시작하는 라우트들에게 topicRouter를 적용
+* main.js에 있던 /topic라우터들을 분리한 곳에서 이전
+
+```javascript
+// 필요한 모듈 갖고오기
+var express = require('express');
+var router = express.Router();
+var template = require('../lib/template');
+var fs = require('fs');
+var path = require('path');
+var sanitizeHtml = require('sanitize-html');
+
+// app => router로 바꾸고 패스에서 /topic 제거
+router.get('/create', (request, response) => {
+    var title = 'WEB - create';
+    var list = template.list(request.list);
+    var html = template.HTML(title, list, `
+            <form action="/topic/create_process" method="post">
+              <p><input type="text" name="title" placeholder="title"></p>
+              <p>
+                <textarea name="description" placeholder="description"></textarea>
+              </p>
+              <p>
+                <input type="submit">
+              </p>
+            </form>
+          `, '');
+    response.send(html);
+});
+
+// router를 밖으로 내보내기
+module.exports = router;
+```
+
+# 14.3 라우터 - 파일로 분리 - index
+* '/' 루트도 분리하기, 위와 같음
+
+# 15. 보안
+* 항상 최신버젼 유지
+* helmet, nsp 등 모듈 사용
+* express 공식문서 보안 관련 참고
+
+# 16. express generator
+* 기본적인 똑같은 일을 반복하는 것을 방지
+* 공식문서 express generator 참고
+* 기본적인 express의 구성을 자동으로 준비해줌
