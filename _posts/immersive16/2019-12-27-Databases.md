@@ -28,7 +28,7 @@ FROM employee   // employe에서
 WHERE gender = 'M'  //gender = 'M'인 데이터들을
 ```
 
-![1]()
+![1](../../images/immersive16/database01.png)
 
 ## Learn SQL - Part 1
 
@@ -181,23 +181,65 @@ SELECT * FROM Customers
 WHERE City IN ('Paris','London');
 ```
 
-* 그 외에 키워드
+### SQL AND, OR and NOT Operators
+* WHERE절은 AND, OR, NOT 연산자와 조합될 수 있다.
+* AND, OR는 하나의 조건 이상에 기반한 레코드를 필터하기 위해 사용된다.
+    1. AND 연산자는 모든 조건들이 TRUE인 레코드들을 표시한다.
+    2. OR 연산자는 어떤 조건이 TRUE인 레코드를 표시한다.
+* NOT 연산자는 TRUE가 아닌 조건의 레코드를 표시한다.
 
 ```sql
-// 'NOT' : City 열에서 'Berlin'이 아닌 값들만 필터링
+// 'AND' : Country가 'Germany' 이고 City가 'Berlin'인 값을 필터링
 SELECT *
 FROM Customers
-WHERE NOT City = 'Berlin';
+WHERE Country='Germany' AND City='Berlin';
 
-// 'AND' : City열의 값이 'Berlin'이고 PostalCode열의 값이 12209인 모든 레코드를 필터링
+// 'OR' : City가 'Berlin' 이거나 'München'인 값을 필터링
 SELECT *
 FROM Customers
-WHERE City = 'Berlin'
-AND PostalCode = 12209;
+WHERE City='Berlin' OR City='München';
 
-// 'OR' : City열의 값이 'Berlin' 또는 'London'인 모든 레코드를 필터링
+// 'NOT' : Country가 'Germany'가 아닌 값을 필터링
 SELECT *
 FROM Customers
-WHERE City = 'Berlin'
-OR City = 'London';
+WHERE NOT Country='Germany';
+
+// 'AND'와 'OR'의 결합
+SELECT *
+FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='München');
+
+// 'NOT'과 'AND'의 결합
+SELECT *
+FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
 ```
+
+### SQL ORDER BY Keyword
+* ORDER BY 키워드는 오름차순 또는 내림차순으로 result-set을 정렬하기 위해 사용된다.
+* 디폴트로 오름차순으로 정렬되며, 내림차순은 DESC 키워드를 이용한다.
+
+```sql
+// Country열의 값을 A-Z 순으로 정렬하여 필터링
+SELECT *
+FROM Customers
+ORDER BY Country;
+
+// County열의 값을 Z-A 순으로 정렬하여 필터링
+SELECT *
+FROM Customers
+ORDER BY Country DESC;
+
+// County열의 값을 A-Z 순으로 정렬하고 같은 County 값이 있다면 CustomerName을 A-Z 순으로 정렬
+SELECT *
+FROM Customers
+ORDER BY Country, CustomerName;
+
+// County열의 값을 A-Z 순으로 정렬하여 필터링하고 같은 County 값이 있다면 CostomerNamedmf Z-A 순으로 정렬
+SELECT *
+FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+```
+
+### SQL INSERT INTO Statement
+*
