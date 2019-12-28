@@ -287,15 +287,15 @@ WHERE Address IS NOT NULL;
 * LIKE 연산자는 열에서 특정한 패턴을 찾기 위해 WHERE 절에서 사용된다.
 
 **Wildcard Characters in SQL Server**
-1. %  : 0 또는 그 이상의 문자를 표시한다.
+1. '%'  : 0 또는 그 이상의 문자를 표시한다.
     * bl% finds bl, black, blue, and blob
-2. _  : 하나의 문자를 표시한다.
+2. '_'  : 하나의 문자를 표시한다.
     * h_t finds hot, hat, and hit
-3. [] : 브라켓 안의 문자 중 하나를 표시한다.
+3. '[]' : 브라켓 안의 문자 중 하나를 표시한다.
     * h[oa]t finds hot and hat, but not hit
-4. !  : 브라켓 안의 없는 문자를 표시한다.
+4. '!'  : 브라켓 안의 없는 문자를 표시한다.
     * h[!oa]t finds hit, but not hot and hat
-5. -  : 문자의 범위를 표시한다.
+5. '-'  : 문자의 범위를 표시한다.
     * c[a-b]t finds cat and cbt
 
 **Using the % Wildcard**
