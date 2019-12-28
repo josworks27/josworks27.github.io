@@ -242,4 +242,128 @@ ORDER BY Country ASC, CustomerName DESC;
 ```
 
 ### SQL INSERT INTO Statement
-*
+* INSERT INTO 구문은 테이블에 새로운 레코드를 삽입하기 위해 사용된다.
+
+```sql
+// Customers 테이블의 괄호 안에 속하는 열에 VALUES의 값들의 순서대로 삽입
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');        
+```
+
+**Insert Data Only in Specified Columns**
+* 특정 열에 데이터를 삽입하는 것도 가능하다.
+
+```sql
+// 특정 열에 값들이 삽입되고, 열거되지 않은 열에는 'null' 자동삽입
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+```
+
+### SQL NULL Values
+**What is a NULL Value?**
+* Null이 있는 필드는 값이 없는 필드이다.
+* 만약 테이블의 필드가 옵셔널이라면 이는 새로운 레코드를 삽입하거나 해당 필드에 값을 추가하는 것 없이 갱신하는 것이 가능하다. 그리고 그 필드는 NULL 값으로 저장된다.
+
+**How to Test for NULL Values?**
+* =, <, or <>와 같은 비교 연산자로 NULL 값을 테스트하는 것은 불가능하다.
+* 대신에 IS NULL, IS NOT NULL 연산자를 사용해야 한다.
+
+```sql
+// 'IS NULL' : Address 열에 NULL인 값을 필터링
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL;
+
+// 'IS NOT NULL' : Address 열에 NULL이 아닌 값을 필터링
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NOT NULL;
+```
+
+### SQL Wildcards
+**SQL Wildcard Characters**
+* Wildcard Character는 문자열의 하나 이상의 문자를 대체하는데 사용된다.
+* Wildcard Character는 SQL LIKE 연산자와 함게 사용된다.
+* LIKE 연산자는 열에서 특정한 패턴을 찾기 위해 WHERE 절에서 사용된다.
+
+**Wildcard Characters in SQL Server**
+1. %  : 0 또는 그 이상의 문자를 표시한다.
+    * bl% finds bl, black, blue, and blob
+2. _  : 하나의 문자를 표시한다.
+    * h_t finds hot, hat, and hit
+3. [] : 브라켓 안의 문자 중 하나를 표시한다.
+    * h[oa]t finds hot and hat, but not hit
+4. !  : 브라켓 안의 없는 문자를 표시한다.
+    * h[!oa]t finds hit, but not hot and hat
+5. -  : 문자의 범위를 표시한다.
+    * c[a-b]t finds cat and cbt
+
+**Using the % Wildcard**
+```sql
+// City 열의 'ber'로 시작하는 값을 필터링
+SELECT *
+FROM Customers
+WHERE City LIKE 'ber%';
+
+// City 열의 'es'가 앞, 뒤, 앞뒤에 포함된 값을 필터링
+SELECT *
+FROM Customers
+WHERE City LIKE '%es%';
+```
+
+**Using the _ Wildcard**
+```sql
+// City 열에서 'L()n()on'에 해당하는 값을 필터링. ()안에는 어떠한 문자 하나가 들어갈 수 있다.
+SELECT *
+FROM Customers
+WHERE City LIKE 'L_n_on';
+```
+
+**Using the [charlist] Wildcard**
+```sql
+// City 열에서 b, s, p로 시작하는 값을 필터링
+SELECT *
+FROM Customers
+WHERE City LIKE '[bsp]%';
+
+// City 열에서 a-c사이의 문자로 시작하는 값을 필터링
+SELECT * FROM Customers
+WHERE City LIKE '[a-c]%';
+```
+
+**Using the [!charlist] Wildcard**
+```sql
+// City 열에서 b, s, p로 시작하지 않는 값을 필터링
+SELECT *
+FROM Customers
+WHERE City LIKE '[!bsp]%';
+
+// 또는 NOT LIKE 연산자 사용
+SELECT *
+FROM Customers
+WHERE City NOT LIKE '[bsp]%';
+```
+
+### SQL Aliases
+* SQL alias는 테이블, 테이블의 열에 임시로 이름을 주는데 사용된다.
+* allias는 더 읽기 쉬운 열 이름을 만드는데 사용된다.
+* 하나의 allias는 쿼리가 지속되는 동안만 존재한다.
+
+```sql
+// CustomerID => ID, CustomerName => Customer로 보이게 필터링
+SELECT CustomerID AS ID, CustomerName AS Customer
+FROM Customers;
+
+// 공백이 있는 allias는 "" 또는 []로 묶기
+SELECT CustomerName AS Customer, ContactName AS [Contact Person]
+FROM Customers;
+
+// Address, PostalCode, City, Country를 묶어서 Address로 보이게 필터링(아래는 MySQL 방식)
+SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address
+FROM Customers;
+
+// Customers 테이블을 c, Orders 테이블을 o로 해서 각 테이블에서 필요한 열의 WHERE절의 해당하는 값을 필터링
+SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
+```
