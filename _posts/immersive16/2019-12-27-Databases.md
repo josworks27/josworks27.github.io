@@ -367,3 +367,68 @@ SELECT o.OrderID, o.OrderDate, c.CustomerName
 FROM Customers AS c, Orders AS o
 WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
 ```
+
+
+## Learn SQL - Part 2
+
+### SQL Joins
+* JOIN 절은 두 개 이상의 테이블로부터 행을 결합하기 위해 사용된다.
+
+```sql
+// Orders.CustomerID와 Customers.CustomerID가 같은 값 중에 두 테이블에서 필요한 열들의 값을 필터링
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders 
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+```
+
+**Different Types of SQL JOINs**
+* SQL의 JOIN의 타입별 차이점
+    1. (INNER) JOIN : 양 테이블에서 매치되는 값의 레코드 반환
+    2. LEFT (OUTER) JOIN : 매치되는 오른쪽 테이블의 레코드 + 왼쪽의 모든 레코드를 반환
+    3. RIGHT (OUTER) JOIN : 매치되는 왼쪽 테이블의 레코드 + 오른쪽의 모든 레코드를 반환
+    4. FULL OUTER JOIN : 왼쪽 또는 오른쪽 테이블에서 매치되는 항목이 있으면 모든 레코드를 반환
+
+![2](../../images/immersive16/join-operation.png)
+
+### SQL INNER JOIN Keyword
+* INNER JOIN 키워드는 양 테이블에서 매칭되는 항목을 선택한다.
+
+```sql
+// Orders와 Customers 테이블에서 Orders.CustomerID = Customers.CustomerID가 매칭되는 값을 필터링
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+```
+
+**JOIN Three Tables**
+```sql
+// 테이블을 괄호로 묶어서 필터링
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+```
+
+### SQL LEFT JOIN Keyword
+* LEFT JOIN 키워드는 왼쪽 테이블의 모든 레코드와 오른쪽 테이블의 매치된 레코드를 반환한다.
+* 만약 매치되는 항목이 없다면 오른쪽의 결과는 NULL이 된다.
+
+```sql
+// Customers의 모든 레코드와 Orders의 매칭되는 레코드를 필터링
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;
+```
+
+### SQL RIGHT JOIN Keyword
+* RIGHT JOIN 키워드는 오른쪽 테이블의 모든 레코드와 왼쪽 테이블의 매치된 레코드를 반환한다.
+* 매치되는 항목이 없다면 왼쪽으로 부터의 결과는 NULL이 된다.
+
+```sql
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees
+ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;
+```
