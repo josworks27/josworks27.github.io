@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Databases"
+title: "Databases_Learn SQL"
 tags: 
     - Immersive 16
 comments: true
