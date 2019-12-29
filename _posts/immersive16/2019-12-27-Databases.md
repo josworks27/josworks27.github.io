@@ -51,7 +51,8 @@ WHERE gender = 'M'  //gender = 'M'인 데이터들을
 * 테이블, 프로시져, 뷰에 허가를 셋할 수 있다.
 
 **SQL is a Standard - BUT...**
-* SQL이 ANSI/ISO의 기준이라 할지라도, SQL언어의 다른 버젼들이 존재하지만, SELECT, UPDATE, DELETE, INSERT, WHERE과 같은 주요 명령어는 지원된다.
+* SQL이 ANSI/ISO의 기준이라 할지라도, SQL언어의 다른 버젼들도 존재한다. 
+* 그렇지만 SELECT, UPDATE, DELETE, INSERT, WHERE과 같은 주요 명령어는 지원된다.
 
 **Using SQL in Your Web Site**
 * 데이터베이스로 부터 데이터를 보여주는 웹사이트를 구축하기 위해 다음과 같은 것들이 필요하다.
@@ -64,7 +65,7 @@ WHERE gender = 'M'  //gender = 'M'인 데이터들을
 * RDBMS: Relational Database Management System
 * RDBMS는 모든 데이터베이스 시스템과 SQL의 토대이다.
 * RDBMS의 데이터는 테이블이라고 불리는 데이터베이스 객체로 저장된다.
-* 테이블은 연간된 데이터의 컬렉션이고, 행과 열로 이루어진다.
+* 테이블은 연관된 데이터의 컬렉션이고, 행과 열로 이루어진다.
 
 ```sql
 Your Database:
@@ -78,7 +79,7 @@ Products	    77
 Shippers	    3
 Suppliers	    29
 
-// Customers 필터링
+-- Customers 필터링
 SELECT *
 FROM Customers;
 ```
@@ -110,11 +111,11 @@ FROM Customers;
 * 모든 필드를 선택하고 싶다면 '*'을 이용한다.
 
 ```sql
-// 모든 column을 선택할 땐 '*'
+-- 모든 column을 선택할 땐 '*'
 SELECT LastName, FirstName
 FROM Employees;
 
-// Employees 테이블로 부터 가져온 결과
+-- Employees 테이블로 부터 가져온 결과
 LastName	FirstName
 Davolio	    Nancy
 Fuller	    Andrew
@@ -131,7 +132,7 @@ West	    Adam
 * 원하는 열에서 중복된 데이터를 제외하고 필터링하고 싶을때는 'DISTINCT' 사용한다.
 
 ```sql
-// 중복되는 country를 제외하고 필터링
+-- 중복되는 country를 제외하고 필터링
 SELECT DISTINCT Country
 FROM Customers;
 ```
@@ -141,7 +142,7 @@ FROM Customers;
 * WHERE은 특정한 상태를 만족하는 기록들만 추출하는데 사용된다.
 
 ```sql
-// Country 열에서는 Mexico만 해당하는 데이터 필터링
+-- Country 열에서는 Mexico만 해당하는 데이터 필터링
 SELECT *
 FROM Customers
 WHERE Country='Mexico';
@@ -167,7 +168,7 @@ WHERE CustomerID=1;
 * LIKE	     같은 패턴만
 
 ```sql
-// City 열에서 's'로 시작하는 값만
+-- City 열에서 's'로 시작하는 값만
 SELECT *
 FROM Customers
 WHERE City LIKE 's%';
@@ -176,7 +177,7 @@ WHERE City LIKE 's%';
 * IN	     특정한 복수의 값들만
 
 ```sql
-// City에서 'Paris'와 'London'만
+-- City에서 'Paris'와 'London'만
 SELECT * FROM Customers
 WHERE City IN ('Paris','London');
 ```
@@ -189,27 +190,27 @@ WHERE City IN ('Paris','London');
 * NOT 연산자는 TRUE가 아닌 조건의 레코드를 표시한다.
 
 ```sql
-// 'AND' : Country가 'Germany' 이고 City가 'Berlin'인 값을 필터링
+-- 'AND' : Country가 'Germany' 이고 City가 'Berlin'인 값을 필터링
 SELECT *
 FROM Customers
 WHERE Country='Germany' AND City='Berlin';
 
-// 'OR' : City가 'Berlin' 이거나 'München'인 값을 필터링
+-- 'OR' : City가 'Berlin' 이거나 'München'인 값을 필터링
 SELECT *
 FROM Customers
 WHERE City='Berlin' OR City='München';
 
-// 'NOT' : Country가 'Germany'가 아닌 값을 필터링
+-- 'NOT' : Country가 'Germany'가 아닌 값을 필터링
 SELECT *
 FROM Customers
 WHERE NOT Country='Germany';
 
-// 'AND'와 'OR'의 결합
+-- 'AND'와 'OR'의 결합
 SELECT *
 FROM Customers
 WHERE Country='Germany' AND (City='Berlin' OR City='München');
 
-// 'NOT'과 'AND'의 결합
+-- 'NOT'과 'AND'의 결합
 SELECT *
 FROM Customers
 WHERE NOT Country='Germany' AND NOT Country='USA';
@@ -220,22 +221,22 @@ WHERE NOT Country='Germany' AND NOT Country='USA';
 * 디폴트로 오름차순으로 정렬되며, 내림차순은 DESC 키워드를 이용한다.
 
 ```sql
-// Country열의 값을 A-Z 순으로 정렬하여 필터링
+-- Country열의 값을 A-Z 순으로 정렬하여 필터링
 SELECT *
 FROM Customers
 ORDER BY Country;
 
-// County열의 값을 Z-A 순으로 정렬하여 필터링
+-- County열의 값을 Z-A 순으로 정렬하여 필터링
 SELECT *
 FROM Customers
 ORDER BY Country DESC;
 
-// County열의 값을 A-Z 순으로 정렬하고 같은 County 값이 있다면 CustomerName을 A-Z 순으로 정렬
+-- County열의 값을 A-Z 순으로 정렬하고 같은 County 값이 있다면 CustomerName을 A-Z 순으로 정렬
 SELECT *
 FROM Customers
 ORDER BY Country, CustomerName;
 
-// County열의 값을 A-Z 순으로 정렬하여 필터링하고 같은 County 값이 있다면 CostomerNamedmf Z-A 순으로 정렬
+-- County열의 값을 A-Z 순으로 정렬하여 필터링하고 같은 County 값이 있다면 CostomerNamedmf Z-A 순으로 정렬
 SELECT *
 FROM Customers
 ORDER BY Country ASC, CustomerName DESC;
@@ -245,7 +246,7 @@ ORDER BY Country ASC, CustomerName DESC;
 * INSERT INTO 구문은 테이블에 새로운 레코드를 삽입하기 위해 사용된다.
 
 ```sql
-// Customers 테이블의 괄호 안에 속하는 열에 VALUES의 값들의 순서대로 삽입
+-- Customers 테이블의 괄호 안에 속하는 열에 VALUES의 값들의 순서대로 삽입
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
 VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');        
 ```
@@ -254,7 +255,7 @@ VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
 * 특정 열에 데이터를 삽입하는 것도 가능하다.
 
 ```sql
-// 특정 열에 값들이 삽입되고, 열거되지 않은 열에는 'null' 자동삽입
+-- 특정 열에 값들이 삽입되고, 열거되지 않은 열에는 'null' 자동삽입
 INSERT INTO Customers (CustomerName, City, Country)
 VALUES ('Cardinal', 'Stavanger', 'Norway');
 ```
@@ -269,12 +270,12 @@ VALUES ('Cardinal', 'Stavanger', 'Norway');
 * 대신에 IS NULL, IS NOT NULL 연산자를 사용해야 한다.
 
 ```sql
-// 'IS NULL' : Address 열에 NULL인 값을 필터링
+-- 'IS NULL' : Address 열에 NULL인 값을 필터링
 SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NULL;
 
-// 'IS NOT NULL' : Address 열에 NULL이 아닌 값을 필터링
+-- 'IS NOT NULL' : Address 열에 NULL이 아닌 값을 필터링
 SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NOT NULL;
@@ -300,12 +301,12 @@ WHERE Address IS NOT NULL;
 
 **Using the % Wildcard**
 ```sql
-// City 열의 'ber'로 시작하는 값을 필터링
+-- City 열의 'ber'로 시작하는 값을 필터링
 SELECT *
 FROM Customers
 WHERE City LIKE 'ber%';
 
-// City 열의 'es'가 앞, 뒤, 앞뒤에 포함된 값을 필터링
+-- City 열의 'es'가 앞, 뒤, 앞뒤에 포함된 값을 필터링
 SELECT *
 FROM Customers
 WHERE City LIKE '%es%';
@@ -313,7 +314,7 @@ WHERE City LIKE '%es%';
 
 **Using the _ Wildcard**
 ```sql
-// City 열에서 'L()n()on'에 해당하는 값을 필터링. ()안에는 어떠한 문자 하나가 들어갈 수 있다.
+-- City 열에서 'L()n()on'에 해당하는 값을 필터링. ()안에는 어떠한 문자 하나가 들어갈 수 있다.
 SELECT *
 FROM Customers
 WHERE City LIKE 'L_n_on';
@@ -321,24 +322,24 @@ WHERE City LIKE 'L_n_on';
 
 **Using the [charlist] Wildcard**
 ```sql
-// City 열에서 b, s, p로 시작하는 값을 필터링
+-- City 열에서 b, s, p로 시작하는 값을 필터링
 SELECT *
 FROM Customers
 WHERE City LIKE '[bsp]%';
 
-// City 열에서 a-c사이의 문자로 시작하는 값을 필터링
+-- City 열에서 a-c사이의 문자로 시작하는 값을 필터링
 SELECT * FROM Customers
 WHERE City LIKE '[a-c]%';
 ```
 
 **Using the [!charlist] Wildcard**
 ```sql
-// City 열에서 b, s, p로 시작하지 않는 값을 필터링
+-- City 열에서 b, s, p로 시작하지 않는 값을 필터링
 SELECT *
 FROM Customers
 WHERE City LIKE '[!bsp]%';
 
-// 또는 NOT LIKE 연산자 사용
+-- 또는 NOT LIKE 연산자 사용
 SELECT *
 FROM Customers
 WHERE City NOT LIKE '[bsp]%';
@@ -350,19 +351,19 @@ WHERE City NOT LIKE '[bsp]%';
 * 하나의 allias는 쿼리가 지속되는 동안만 존재한다.
 
 ```sql
-// CustomerID => ID, CustomerName => Customer로 보이게 필터링
+-- CustomerID => ID, CustomerName => Customer로 보이게 필터링
 SELECT CustomerID AS ID, CustomerName AS Customer
 FROM Customers;
 
-// 공백이 있는 allias는 "" 또는 []로 묶기
+-- 공백이 있는 allias는 "" 또는 []로 묶기
 SELECT CustomerName AS Customer, ContactName AS [Contact Person]
 FROM Customers;
 
-// Address, PostalCode, City, Country를 묶어서 Address로 보이게 필터링(아래는 MySQL 방식)
+-- Address, PostalCode, City, Country를 묶어서 Address로 보이게 필터링(아래는 MySQL 방식)
 SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address
 FROM Customers;
 
-// Customers 테이블을 c, Orders 테이블을 o로 해서 각 테이블에서 필요한 열의 WHERE절의 해당하는 값을 필터링
+-- Customers 테이블을 c, Orders 테이블을 o로 해서 각 테이블에서 필요한 열의 WHERE절의 해당하는 값을 필터링
 SELECT o.OrderID, o.OrderDate, c.CustomerName
 FROM Customers AS c, Orders AS o
 WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
@@ -375,7 +376,7 @@ WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
 * JOIN 절은 두 개 이상의 테이블로부터 행을 결합하기 위해 사용된다.
 
 ```sql
-// Orders.CustomerID와 Customers.CustomerID가 같은 값 중에 두 테이블에서 필요한 열들의 값을 필터링
+-- Orders.CustomerID와 Customers.CustomerID가 같은 값 중에 두 테이블에서 필요한 열들의 값을 필터링
 SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
 FROM Orders 
 INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
@@ -394,7 +395,7 @@ INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
 * INNER JOIN 키워드는 양 테이블에서 매칭되는 항목을 선택한다.
 
 ```sql
-// Orders와 Customers 테이블에서 Orders.CustomerID = Customers.CustomerID가 매칭되는 값을 필터링
+-- Orders와 Customers 테이블에서 Orders.CustomerID = Customers.CustomerID가 매칭되는 값을 필터링
 SELECT Orders.OrderID, Customers.CustomerName
 FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
@@ -402,7 +403,7 @@ INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
 
 **JOIN Three Tables**
 ```sql
-// 테이블을 괄호로 묶어서 필터링
+-- 테이블을 괄호로 묶어서 필터링
 SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
 FROM ((Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
@@ -414,7 +415,7 @@ INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 * 만약 매치되는 항목이 없다면 오른쪽의 결과는 NULL이 된다.
 
 ```sql
-// Customers의 모든 레코드와 Orders의 매칭되는 레코드를 필터링
+-- Customers의 모든 레코드와 Orders의 매칭되는 레코드를 필터링
 SELECT Customers.CustomerName, Orders.OrderID
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID=Orders.CustomerID
