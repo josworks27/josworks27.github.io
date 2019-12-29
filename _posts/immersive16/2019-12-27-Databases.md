@@ -158,14 +158,22 @@ WHERE CustomerID=1;
 ```
 
 **Operators in The WHERE Clause**
-* =	         같은 값만
-* >	         더 큰 값만	
-* <	         더 작은 값만	
-* >=	     크거나 같은 값만	
-* <=	     작거나 같은 값만	
-* <>	     같이 않은 값만 (버전에 따라 !=)
-* BETWEEN	 특정 범위	
-* LIKE	     같은 패턴만
+* '='	    :  같은 값만
+* '>'	    :  더 큰 값만	
+* '<'	    :  더 작은 값만	
+* '>='	    :  크거나 같은 값만	
+* '<='	    :  작거나 같은 값만	
+* '<>'	    :  같이 않은 값만 (버전에 따라 !=)
+* 'BETWEEN' :	 특정 범위	
+
+```sql
+-- Products 테이블에서 Price열의 값이 50에서 60사이의 값만 필터링
+SELECT * 
+FROM Products
+WHERE Price BETWEEN 50 AND 60;        
+```
+
+* 'LIKE'    :  같은 패턴만
 
 ```sql
 -- City 열에서 's'로 시작하는 값만
@@ -236,7 +244,7 @@ SELECT *
 FROM Customers
 ORDER BY Country, CustomerName;
 
--- County열의 값을 A-Z 순으로 정렬하여 필터링하고 같은 County 값이 있다면 CostomerNamedmf Z-A 순으로 정렬
+-- Country열의 값을 A-Z 순으로 정렬하여 필터링하고 같은 County 값이 있다면 CostomerNamedmf Z-A 순으로 정렬
 SELECT *
 FROM Customers
 ORDER BY Country ASC, CustomerName DESC;
@@ -246,7 +254,7 @@ ORDER BY Country ASC, CustomerName DESC;
 * INSERT INTO 구문은 테이블에 새로운 레코드를 삽입하기 위해 사용된다.
 
 ```sql
--- Customers 테이블의 괄호 안에 속하는 열에 VALUES의 값들의 순서대로 삽입
+-- Customers 테이블의 괄호 안에 속하는 열에 VALUES의 값들을 순서대로 삽입
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
 VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');        
 ```
