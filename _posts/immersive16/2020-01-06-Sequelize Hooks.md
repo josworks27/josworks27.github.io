@@ -55,6 +55,6 @@ afterValidate : (data, options) => {
     let salt = 'random string';
     let shasum = ctypto.createHash('sha1')
     shasum.update(data.url + salt);
-    data.code = shasum.digest('hex');
+    data.password = shasum.digest('hex');
 }
 ```
