@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Practice Deploy"
+title: "Deploy 방법 정리"
 tags: 
     - Immersive 16
 comments: true
