@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: Josworks27
+name: 조성철(IKU_JO)
 
 # Short bio or description (displayed in the header)
-description: ✨TIL(Today I Learned) 저장소✨
+description: ✨TIL(Today I Learned) Storage✨
 
 #
 # Flags below are optional
@@ -51,7 +51,7 @@ footer-links:
   youtube: # channel/<your_long_string> or user/<user-name>
 
 # Text under the icons in footer
-footer-text: Josworks27⭐
+footer-text: IKU_JO⭐
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
