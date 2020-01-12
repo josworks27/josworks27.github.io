@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Server Side Techniques_Key Materials"
+title: "TIL - 자바스크립트 비동기(Async)에 대해"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 

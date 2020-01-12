@@ -1,10 +1,14 @@
 ---
 layout: post
-title: "Token 개념"
+title: "TIL - 토큰(Token) 이란?"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
+
+
+재구성하였다. 원 자료 찾아서 출처기입하기 !
+
 
 
 # Token

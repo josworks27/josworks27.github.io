@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "N-Queens Problem Review"
+title: "TIL - N-Qeeuns 알고리즘이란?"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 

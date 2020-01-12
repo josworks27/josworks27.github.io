@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shortly express 배포하기"
+title: "TIL - AWS를 이용하여 배포하기"
 tags: 
     - Immersive 16
 comments: true

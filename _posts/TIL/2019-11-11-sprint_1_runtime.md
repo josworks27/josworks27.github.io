@@ -1,15 +1,10 @@
 ---
 layout: post
-title: "Day_1"
+title: "TIL - JavaScript Runtime과 NVM"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. Javascript runtime & Node.js
-2. What is NVM
-3. What is Package.json
 
 
 ## 1. Javascript runtime & Node.js

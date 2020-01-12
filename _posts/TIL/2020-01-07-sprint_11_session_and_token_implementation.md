@@ -1,21 +1,18 @@
 ---
 layout: post
-title: "[Sprint] Authentication and Full Stack Development"
+title: "TIL - Session과 Token을 이용한 인증구현"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 
-
-> 이번 스프린트에서는 클라이언트로 부터 받은 요청 값을 통해 SignUp, SignIn, SignOut 그리고 세션을 이용한 적절한 정보의 응답하는 방법을 알아보았다.
 
 # 1. Session 인증 방식
 
 ## SignUp
 
-**접근방법**
+##### 접근방법
 req.body로 받은 클라이언트의 요청 값을 이용하여 가입되어 있는 회원인지 파악하고 미가입 회원이라면 데이터베이스에 있는 유저 정보를 저장하도록 하였다.
-
 이를 위해, Sequelize의 Query문인 findOne을 이용하여 데이터베이스에 유저정보가 있는지 확인하였고, 없다면 create를 통해 데이터베이스에 유저정보를 저장하였다.
 
 ```javascript
@@ -52,9 +49,8 @@ module.exports = {
 
 ## SignIn
 
-**접근방법**
+###### 접근방법
 req.body를 통해 유저가 보내는 로그인 정보를 파악하고 이 정보를 이용하여 query문인 findOne을 이용하여 데이터베이스에 해당 유저의 정보가 존재하는지 먼저 파악하였다.
-
 그리고 정상적으로 로그인이 된 후에는 해당 유저의 접근권한을 부여하기 위해 세션 스토리지에 해당 유저의 정보를 저장하도록 하였다.
 
 ```javascript
@@ -88,7 +84,7 @@ module.exports = {
 
 ## SignOut
 
-**접근방법**
+###### 접근방법
 세션 스토리지에 있는 세션 정보를 삭제하고 루트('/')로 redirect 될 수 있도록 하였다.
 
 ```javascript
@@ -104,7 +100,7 @@ module.exports = {
 
 ## Info
 
-**접근방법**
+###### 접근방법
 세션에 있는 유저의 정보를 이용하여 데이터베이스에 있는 정보를 찾아 정보를 제공하도록 하였다.
 
 ```javascript
@@ -135,7 +131,7 @@ module.exports = {
 
 ## SingIn
 
-**접근방법**
+###### 접근방법
 로그인하려는 유저의 정보가 데이터베이스에 존재하는 회원인 경우, 토큰을 발급하도록 하였다.
 
 ```javascript
@@ -182,7 +178,7 @@ module.exports = {
 
 ## Info
 
-**접근방법**
+###### 접근방법
 클라이언트로 부터 받은 요청에서 쿠키를 확인하여 토큰의 권한을 확인하였다.
 
 ```javascript
@@ -215,6 +211,3 @@ module.exports = {
   }
 };
 ```
-
-
-# 3. 패스워드 암호화

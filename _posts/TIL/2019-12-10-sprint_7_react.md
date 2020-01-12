@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "React Main Concept"
+title: "TIL - React 주요 개념"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 
 
 # JSX란?
 **Javascript XML**
-* 내장형 XML이라 HTML과 유사하게 하게 정의된 구문을 사용
+* 내장형 XML이라 HTML과 유사하게 정의된 구문을 사용
 * JavaScript 언어의 확장
 * JSX는 많은 개발자에게 친숙한 구문을 사용하여, 요소(구성요소)의 렌더링 구조를 지정하는 방법을 제공함
 * 구성요소는 순수한 JavaScript로 작성할 수도 있음
@@ -17,15 +17,15 @@ comments: true
 * React.js 에서 인기를 얻었으며 Vue.js, TypeScript 등 많은 곳에 사용됨
 * JSX는 컴파일을 하기에 최적화 되고 빠름
 * 그래서 컴파일을 하니 변환과정에서 오류가 있을 경우에는 빌드 시 오류를 일으킴
-* 통상적으로 느끼기에 요소들을 랜더링해서 리턴 시점에 사전 정의된 HTML 로 리턴함
+* 통상적으로 느끼기에 요소들을 랜더링해서 리턴 시점에 사전 정의된 HTML로 리턴함
 
 
 # 1. Component & Props
 
 ## 함수 컴포넌트
-컴포넌트를 정의하는 가장 간단한 방법은 자바스크립트 함수를 작성하는 것이다. 이 함수는 데이터를 가진 하나의 "props"(props는 속성을 나타내는 데이터) 객체 인자를 받은 후 React 엘리먼트를 반환하므로 유효한 React 컴포넌트다.
-
-자바스크립트 함수이기 때문에 "함수 컴포넌트"라고 부른다
+* 컴포넌트를 정의하는 가장 간단한 방법은 자바스크립트 함수를 작성하는 것이다.
+* 이 함수는 데이터를 가진 하나의 "props"(props는 속성을 나타내는 데이터) 객체 인자를 받은 후 React 엘리먼트를 반환하므로 유효한 React 컴포넌트다.
+* 자바스크립트 함수이기 때문에 "함수 컴포넌트"라고 부른다
 
 ```javascript
 function Welcome(props) {

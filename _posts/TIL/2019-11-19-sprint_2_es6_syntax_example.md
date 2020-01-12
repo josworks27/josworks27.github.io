@@ -1,19 +1,10 @@
 ---
 layout: post
-title: "Day_8(2)"
+title: "TIL - ES6 Syntax 예문"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-* ES6 Syntax
-    1. Destructuring
-    2. Spread Operator
-    3. Rest Parameters
-    Default Parameters
-    Template Literals
-    Arrow Functions
 
 
 ## 1.1. Destructuring: Object

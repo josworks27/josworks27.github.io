@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "Day_4(2)"
+title: "TIL - 데이터구조: Stack, Queue"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. 스택(stack)
-2. 큐(Queue)
 
 
 ## 1. 스택(stack)
@@ -45,12 +41,6 @@ console.log(poppedStack);        // 5
   C 반환
 ```
 
-참고자료
-* https://www.zerocho.com/category/Algorithm/post/5800b79e1dfb250015c38db6
-* https://stackoverflow.com/questions/1590247/how-do-you-implement-a-stack-and-a-queue-in-javascript
-* https://medium.com/@songjaeyoung92/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-javascript-stack-%EC%9D%B4%EB%9E%80-31f9bbb84897
-
-
 ## 2. 큐(Queue)
 > 큐(Queue)이란 자료의 입력과 출력이 한 방향으로만 이루어지는 형태의 자료구조
 
@@ -86,5 +76,8 @@ console.log(shiftedQueue);        // 2
 ```
 
 참고자료
+* https://www.zerocho.com/category/Algorithm/post/5800b79e1dfb250015c38db6
+* https://stackoverflow.com/questions/1590247/how-do-you-implement-a-stack-and-a-queue-in-javascript
+* https://medium.com/@songjaeyoung92/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-javascript-stack-%EC%9D%B4%EB%9E%80-31f9bbb84897
 * https://www.zerocho.com/category/Algorithm/post/580b9b94108f510015524097
 * https://helloworldjavascript.net/pages/282-data-structures.html

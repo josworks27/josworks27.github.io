@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "Day_8(3)"
+title: "TIL - JavaScript Prototype 구조"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. prototype에 대해
 
 
 ```javascript

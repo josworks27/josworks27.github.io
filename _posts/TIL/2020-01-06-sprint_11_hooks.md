@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Sequelize Hooks"
+title: "TIL - Sequelize Hooks 명령의 작동순서"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 

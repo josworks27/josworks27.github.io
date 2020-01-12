@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Server Side Techniques_Promises"
+title: "TIL - Promise 란?"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 

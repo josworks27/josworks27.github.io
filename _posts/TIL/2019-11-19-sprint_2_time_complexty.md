@@ -1,14 +1,10 @@
 ---
 layout: post
-title: "Day_7"
+title: "TIL - 시간복잡도(Time Complexity)"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. Complexity Analysis
-2. Data Structure With Time Complexity
 
 
 ## 1. Complexity Analysis

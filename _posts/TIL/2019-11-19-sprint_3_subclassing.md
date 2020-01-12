@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "Day_8(1)"
+title: "TIL - JavaScript의 Subclassing, Prototype"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. Subclassing
 
 
 ## 1. Subclassing

@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "[Interaction With Server]"
+title: "TIL - Web Architecture(Browser, Server, DataBase)"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
+
 
 # Browser
 * 컴퓨터는 2진수만 이해할 수 있음
@@ -17,12 +18,9 @@ comments: true
 
 작동과정
 1. 사용자가 웹브라우저를 통해 웹서버에게 Request(요청)을 한다.
-2. 
+2. 웹서버는 브라우저의 요청을 처리하여 응답한다.
 
 브라우저는 어떻게 동작하는가? [상세](https://d2.naver.com/helloworld/59361)
-
-
-
 
 # HTTP
 HTTP: 클라이언트와 서버가 통신하기 위해서 HTTP라고 하는 규약을 지켜서 통신을 한다.
@@ -87,7 +85,6 @@ AJAX란 Asynchronous Javscript and XML
 
 보다 쓰기 쉬운 표준 API를 만들자는 목적으로 fecth API 등장
 fecth와 XMLHttpRequest이 어떤 차이점이 있는지 비교
-
 
 # why we use 'fecth'?
 fecth는 서버에서 자원을 가져오기 위해 이용

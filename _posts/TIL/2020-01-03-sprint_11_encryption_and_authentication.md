@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Authentication and Full Stack Development"
+title: "TIL - 암호화(Encryption)와 인증(Authentication)에 대해"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 

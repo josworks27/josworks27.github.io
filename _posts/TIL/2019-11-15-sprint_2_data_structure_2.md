@@ -1,22 +1,11 @@
 ---
 layout: post
-title: "Day_5"
+title: "TIL - 데이터구조: Linked List, Graph, Tree, Binary Search Tree, Hash Table"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 
-# INDEX
-1. 연결 리스트(Linked List)
-2. 그래프(Graph)
-3. 트리(Tree)
-4. 이진 탐색 트리(Binary Search Tree)
-5. 해시 테이블(Hash Table)
-
-```
-내용 노잼, 깊이 없음, 
-제대로 이해하고 자신만의 말로 수정할 것
-```
 
 ## 1. 연결 리스트(Linked List)
 > 'Linked List' 란 각 노드가 데이터와 포인터를 가지고 한 줄로 연결되어 있는 형태의 자료구조

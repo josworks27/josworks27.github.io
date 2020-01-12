@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Databases_Key Materials"
+title: "TIL - Schema와 MVC 패턴의 개념"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
 
@@ -17,7 +17,6 @@ comments: true
 
 **JOIN**
 * 두 개 이상의 테이블을 합쳐서 쓰고 싶을 때 사용하며, inner join, left join이 주로 많이 쓰임
-
 
 # MVC design pattern
 * Model View Controller의 약자
@@ -40,5 +39,3 @@ comments: true
 * 모델에게서 받은 데이터를 가공하여 다시 뷰에게 넘겨준다.
 
 ![1](../../images/immersive16/database-key-materials-01.png)
-
-* MVC 패턴 더 공부해 보기

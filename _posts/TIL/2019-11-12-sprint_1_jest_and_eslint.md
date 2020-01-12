@@ -1,21 +1,10 @@
 ---
 layout: post
-title: "Day_2"
+title: "TIL - Jest And ESLint"
 tags: 
-    - Immersive 16
+    - TIL
 comments: true
 ---
-
-# INDEX
-1. Code Quality
-2. Jest
-3. ESLint
-4. Scope & closure
-    4.1. Hosisting
-    4.2. Default Parameter
-    4.3. Template Literal
-    4.4. Arrow Function
-    4.5. Rest Parameter
 
 
 ## 1. Code Quality
@@ -69,64 +58,3 @@ xtest(name, fn); // xit과 동일
 * 대표적으로 에어비엔비, 네이버 등에서 자신들의 ESLint 룰을 공유하고 있음
 * 자신만의 룰을 만들고 싶다면 아래의 공식문서 참조!
 [ESLint](https://eslint.org/)
-
-## 4. Scope & Closure
-
-## 4.1. Hoisting
-* var 키워드에서 가능
-* let, const 키워드에 경우에는 'ReferenceError' 가 발생
-
-```javascript
-console.log(a); // undefined
-var a = 1;
-```
-
-### 4.2. Default Parameter
-* 함수의 Prameter에 기본값을 줄 수 있음
-
-```javascript
-function testFunc(a = 'hello') {
-    console.log(a);
-}
-
-testFunc() // 'hello'
-testFunc('world') // 'world'
-```
-
-### 4.3. Template Literal
-
-```javascript
-let a = 'hello';
-let b = 'world';
-
-let c = `${a} + ${b} is 'hello world'`;
-console.log(c); // hello + world is 'hello world'
-```
-
-### 4.4. Arrow Function
-
-```javascript
-보통의 함수표현식 예시
-let foo = function(a) {
-    return a;
-}
-
-화살표 함수를 이용한 함수표현식 예시
-let foo = a => a;
-}
-```
-
-### 4.5. Rest Parameter
-* arguments와 같이 유사배열이 아닌 배열형태(* 배열 메소드 활용가능)
-```javascript
-function foo(a, b, ...params) {
-    console.log(a);
-    console.log(b);
-    console.log(params);
-}
-
-foo(1, 2, 3, 4, 5);
-// 1
-// 2
-// [3, 4, 5];
-```
