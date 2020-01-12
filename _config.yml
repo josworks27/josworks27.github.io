@@ -6,7 +6,7 @@
 name: Josworks27
 
 # Short bio or description (displayed in the header)
-description: ✨IKU_JO Web development ✨
+description: ✨TIL(Today I Learned) 저장소✨
 
 #
 # Flags below are optional
@@ -20,14 +20,14 @@ avatar: https://i.imgur.com/5ze6e8Ts.jpg
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 navigation:
-  - name: Blog
-    url: /
-  - name: About
-    url: /about
-  - name: Archive
+  # - name: Blog
+  #   url: /
+  # - name: About
+  #   url: /about
+  - name: TIL List
     url: /archive
-  - name: Tags
-    url: /tags
+  # - name: Tags
+  #   url: /tags
 
 # Pagination
 paginate: 5
