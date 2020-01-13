@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-프론트엔드 개발, 도시공간과 데이터, 시각화에 대해 관심이 있습니다.
+백엔드 웹 개발과 도시공간 및 공유도시에 대해 관심이 있습니다.
 
 ### More Information
 
