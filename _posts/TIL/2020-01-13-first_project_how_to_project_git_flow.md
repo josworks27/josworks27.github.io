@@ -1,3 +1,11 @@
+---
+layout: post
+title: "TIL - git branch와 git flow 이해"
+tags: 
+    - TIL
+comments: true
+---
+
 # Git Branch
 
 * 분리된 작업 영역이며 사본이라고 생각하면 좋음(원본에 영향이 없음)
@@ -24,11 +32,11 @@
   2. 브랜치를 생성한다.
      * git checkout -b <기능2>
 
-![2020-01-13-first_project_how_to_project_git_flow_1](/Users/joseongcheol/Desktop/josworks27.github.io/images/TIL/2020-01-13-first_project_how_to_project_git_flow_1.png)
+![2020-01-13-first_project_how_to_project_git_flow_1](../../images/TIL/2020-01-13-first_project_how_to_project_git_flow_1.png)
 
 # Project git workflow
 
-![2020-01-13-first_project_how_to_project_git_flow_2](/Users/joseongcheol/Desktop/josworks27.github.io/images/TIL/2020-01-13-first_project_how_to_project_git_flow_2.png)
+![2020-01-13-first_project_how_to_project_git_flow_2](../../images/TIL/2020-01-13-first_project_how_to_project_git_flow_2.png)
 
 * fork 후 마스터 레포를 갖고 온다.
 * git clone해서 로컬로 가져온다.
